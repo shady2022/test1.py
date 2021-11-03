@@ -2,9 +2,10 @@ import cv2
 import pytesseract
 
 # Read image
-img = cv2.imread('14.jpg')
+img = cv2.imread('NEW.jpg')
 
-pytesseract.pytesseract.tesseract_cmd = 'C:\\Users\Masoud Rajabzadeh\\Desktop\\image processing python\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Users\\Desktop\\image processing python\\Tesseract-OCR\\tesseract.exe'
+
 
 # Convert to grayscale, and binarize, especially for removing JPG artifacts
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -28,6 +29,7 @@ gray = cv2.rotate(gray, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
 # Actual OCR, limiting to capital letters only
 config = '--psm 6 -c tessedit_char_whitelist="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 "'
+
 text = pytesseract.image_to_string(gray, config=config)
 print(text.replace('\n', '').replace('\f', ''))
 
