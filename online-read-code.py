@@ -34,7 +34,7 @@ tesseract()
 def save():
     pytesseract.pytesseract.tesseract_cmd = "D:\\Python Project\\kar\\Tesseract-OCR\\tesseract.exe" 
     image_path = cv2.imread("test1.jpg")
-    change = cv2.resize(image_path, None, fx=2, fy=2)
+    change = cv2.resize(image_path, None, fx=0.5, fy=0.5)
     gray = cv2.cvtColor(change, cv2.COLOR_BGR2GRAY)
     gray = cv2.threshold(gray, 128, 255, cv2.THRESH_BINARY_INV)[1]
     h, w = gray.shape
